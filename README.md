@@ -28,4 +28,22 @@ The distrib directory contains all you need to run the application.
               */5 * * * * cd /SCPrimeCurrentVersion && ./update-rates.sh >/dev/null 2>&1
 5) ...
 6) Profit!
-7)
+
+
+The code was developed using 
+            Eclipse IDE for Enterprise Java Developers (includes Incubating components)
+            Version: 2020-12 (4.18.0)
+            Build id: 20201210-1552
+            OS: Windows 10, v.10.0, x86_64 / win32
+            Java version: 15.0.2
+
+It requires JavaSE-1.8 or better
+It is a Maven project
+
+
+DISCLAIMER -
+
+THIS IS FREE OPEN SOURCE CODE. IT IS FREE SHIT AND BE HAPPY YOU GET TO USE IT FOR FREE. IF YOU GOT COMPLAINTS KEEP IT TO YOURSELF,
+OR WRITE YOUR OWN DAMNED CODE.
+
+
