@@ -7,7 +7,7 @@ The distrib directory contains all you need to run the application.
 2) Edit the pricewatch.properties file with your api key on livecoinwatch.com (you must create a login). Go to https://www.livecoinwatch.com/tools/api
 3) Test execute the app by running '$ sh ./update-rates.sh' manually. If it works you should see something like this as output:
 
-              garrett@pisces:/SCPrimeCurrentVersion$ sh ./update-rates.sh
+              morbidmanatee@pisces:/SCPrimeCurrentVersion$ sh ./update-rates.sh
               Host settings updated.
               could not get host score estimate: [failed to get reader response; GET request error; cannot call /host/estimatescore without the renter module]
               Host settings updated.
@@ -18,7 +18,7 @@ The distrib directory contains all you need to run the application.
               could not get host score estimate: [failed to get reader response; GET request error; cannot call /host/estimatescore without the renter module]
               Host settings updated.
               could not get host score estimate: [failed to get reader response; GET request error; cannot call /host/estimatescore without the renter module]
-              garrett@pisces:/SCPrimeCurrentVersion$
+              morbidmanatee@@pisces:/SCPrimeCurrentVersion$
 
 4) Read crontab-examples.txt to see how to configure a crontab. Here is an example:
 
