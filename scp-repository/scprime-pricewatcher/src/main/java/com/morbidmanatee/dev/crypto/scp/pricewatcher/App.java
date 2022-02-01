@@ -27,7 +27,6 @@ public class App
 	private static String PROPS_FILE_PATH = "pricewatcher.properties";
 
 	public static String LCW_API_KEY = "change-me";
-//	public static String API_PASSWD = " --api 0c14c5b2cac5f21791613c953392489b";
 	public static String SCP_API_PASSWD = null;
 //	public static int maxPriceSCP = 5000;
 //	public static int minPriceSCP = 1000;
