@@ -121,7 +121,6 @@ public class App
         {
         	//e.printStackTrace();
         	// file doesn't exist - make it
-            props.setProperty("sessionTimeout", "300");
         	saveProperties(props);
         } 
         finally 
