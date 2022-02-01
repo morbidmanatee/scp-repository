@@ -1,33 +1,11 @@
 package com.morbidmanatee.dev.crypto.scp.pricewatcher;
 
-/*
-OPEN SOURCE SOFTWARE DISCLAIMER -
-
-THE OPEN SOURCE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
-EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-THE AUTHOR, AKA MORBIDMANATEE, DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS OPEN SOURCE SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR, AKA MORBIDMANATEE, BE LIABLE FOR ANY
-SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING
-FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
-OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-*/
-
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
-import java.util.function.Consumer;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -49,12 +27,19 @@ public class App
 	public static String LCW_API_KEY = "change-me";
 	public static String SCP_API_PASSWD = null;
 	public static String SCP_ADDR_STRING = null;
-//	public static int maxPriceSCP = 5000;
-//	public static int minPriceSCP = 1000;
 	
-	public static double STORAGE_PRICE = 2.0;	// $/TB
-	public static double CONTRACT_PRICE = 0.5;	// $/contract
-	public static double NETWORK_PRICE = 2.0;	// $/TB
+	public static int MAX_STORAGE_PRICE_mS = 5000;
+	public static int MIN_STORAGE_PRICE_mS = 1000;
+	public static int MAX_NETWORK_PRICE_mS = 5000;
+	public static int MIN_NETWORK_PRICE_mS = 100;
+	public static int MAX_CONTRACT_PRICE_mS = 1000;
+	public static int MIN_CONTRACT_PRICE_mS = 1;
+	
+
+	
+	public static double CURRENT_STORAGE_PRICE_$ = 2.0;	// $/TB
+	public static double CURRENT_CONTRACT_PRICE_$ = 0.005;	// $/contract
+	public static double CURRENT_NETWORK_PRICE_$ = 1.0;	// $/TB
 	
     public static void main( String[] args )
     {
@@ -68,6 +53,13 @@ public class App
 	
     public void exec( String[] args ) throws Exception
     {
+    	{
+    		SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+    		Date date = new Date(System.currentTimeMillis());
+    		System.out.println("# " + formatter.format(date));   		
+    	}
+    	System.out.println("#");
+    	
     	if(args.length==1)
     	{
     		PROPS_FILE_PATH = args[0];
@@ -122,9 +114,9 @@ public class App
     	}
 
 //    	System.out.println("SCP Price: " + rate);
-    	int storagePrice_mS = Math.max(1000, Math.min(5000, (int)(1000.0 * STORAGE_PRICE / rate)));
-    	int contractPrice_mS =  Math.max(1, Math.min(1000, (int)(1000.0 * CONTRACT_PRICE / rate)));
-    	int networkPrice_mS = Math.max(100, Math.min(5000, (int)(1000.0 * NETWORK_PRICE / rate)));
+    	int storagePrice_mS = Math.max(MIN_STORAGE_PRICE_mS, Math.min(MAX_STORAGE_PRICE_mS, (int)(1000.0 * CURRENT_STORAGE_PRICE_$ / rate)));
+    	int contractPrice_mS =  Math.max(MIN_CONTRACT_PRICE_mS, Math.min(MAX_CONTRACT_PRICE_mS, (int)(1000.0 * CURRENT_CONTRACT_PRICE_$ / rate)));
+    	int networkPrice_mS = Math.max(MIN_NETWORK_PRICE_mS, Math.min(MAX_NETWORK_PRICE_mS, (int)(1000.0 * CURRENT_NETWORK_PRICE_$ / rate)));
     	
 //    	System.out.println("storagePrice_mS: " + storagePrice_mS);
 //    	System.out.println("contractPrice_mS: " + contractPrice_mS);
@@ -225,17 +217,17 @@ public class App
 /////////
     	val = props.getProperty("app.storagePrice");
     	if(val!=null)
-    		App.STORAGE_PRICE = Double.valueOf(CONTRACT_PRICE);
+    		App.CURRENT_STORAGE_PRICE_$ = Double.valueOf(val);
     	
 /////////
     	val = props.getProperty("app.target.contractPrice");
     	if(val!=null)
-    		App.CONTRACT_PRICE = Double.valueOf(val);
+    		App.CURRENT_CONTRACT_PRICE_$ = Double.valueOf(val);
     	
 /////////
     	val = props.getProperty("app.target.networkPrice");
     	if(val!=null)
-    		App.NETWORK_PRICE = Double.valueOf(val);
+    		App.CURRENT_NETWORK_PRICE_$ = Double.valueOf(val);
     	
     }
     
