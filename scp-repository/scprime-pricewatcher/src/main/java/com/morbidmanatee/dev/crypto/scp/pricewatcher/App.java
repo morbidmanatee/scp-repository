@@ -231,6 +231,29 @@ public class App
     	if(val!=null)
     		App.CURRENT_NETWORK_PRICE_$ = Double.valueOf(val);
     	
+///////// incentive limits
+    	val = props.getProperty("app.max.networkPrice");
+    	if(val!=null)
+    		App.MAX_NETWORK_PRICE_mS = Integer.valueOf(val);
+    	val = props.getProperty("app.min.networkPrice");
+    	if(val!=null)
+    		App.MIN_NETWORK_PRICE_mS = Integer.valueOf(val);
+    	
+    	val = props.getProperty("app.max.storagePrice");
+    	if(val!=null)
+    		App.MAX_STORAGE_PRICE_mS = Integer.valueOf(val);
+    	val = props.getProperty("app.min.storagePrice");
+    	if(val!=null)
+    		App.MIN_STORAGE_PRICE_mS = Integer.valueOf(val);
+    	
+    	val = props.getProperty("app.max.contractPrice");
+    	if(val!=null)
+    		App.MAX_CONTRACT_PRICE_mS = Integer.valueOf(val);
+    	val = props.getProperty("app.min.contractPrice");
+    	if(val!=null)
+    		App.MIN_CONTRACT_PRICE_mS = Integer.valueOf(val);
+
+    	
     }
     
 }
