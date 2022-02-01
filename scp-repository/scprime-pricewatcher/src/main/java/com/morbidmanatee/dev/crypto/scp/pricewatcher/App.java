@@ -182,4 +182,5 @@ public class App
     		App.NETWORK_PRICE = Double.valueOf(val);
     	
     }
+    
 }
