@@ -68,9 +68,14 @@ public class App
 	
     public void exec( String[] args ) throws Exception
     {
-		Properties props = loadProperties();
-//		System.out.println("Properties loaded:");
-//		System.out.println(props.toString());
+    	if(args.length==1)
+    	{
+    		PROPS_FILE_PATH = args[0];
+    	}
+    	
+		Properties props = loadProperties(PROPS_FILE_PATH);
+		System.out.println("# Using " + PROPS_FILE_PATH);
+		System.out.println("# Properties loaded: " + props.toString());
 		setSystemParameters(props);
 
     	double rate =  1.0;
@@ -109,9 +114,9 @@ public class App
 			}
 			catch(Exception e)
 			{
-				System.out.println("Please check that the litecoinwatch.apikey property is set to your api-key!");
-				System.out.println("The configured value is [" + LCW_API_KEY + "]");
-				System.out.println("Exiting");
+				System.out.println("# Please check that the litecoinwatch.apikey property is set to your api-key!");
+				System.out.println("# The configured value is [" + LCW_API_KEY + "]");
+				System.out.println("# Exiting");
 				return;
 			}
     	}
@@ -152,13 +157,13 @@ public class App
     	System.out.println(commandLine);
     }
     
-    private Properties loadProperties() 
+    private Properties loadProperties(String propertiesPath) 
     {
         Properties props = new Properties();
         
         try 
         {
-        	File propsFile = new File(PROPS_FILE_PATH);
+        	File propsFile = new File(propertiesPath);
         	FileInputStream fin = new FileInputStream(propsFile);
         	props.load(fin);
         	fin.close();
