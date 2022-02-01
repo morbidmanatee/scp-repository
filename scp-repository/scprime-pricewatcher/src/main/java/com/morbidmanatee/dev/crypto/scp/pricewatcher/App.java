@@ -48,6 +48,7 @@ public class App
 
 	public static String LCW_API_KEY = "change-me";
 	public static String SCP_API_PASSWD = null;
+	public static String SCP_ADDR_STRING = null;
 //	public static int maxPriceSCP = 5000;
 //	public static int minPriceSCP = 1000;
 	
@@ -114,11 +115,26 @@ public class App
 //    	System.out.println("contractPrice_mS: " + contractPrice_mS);
 //    	System.out.println("networkPrice_mS: " + networkPrice_mS);  	
     	
-    	systemExec("./spc host config minstorageprice " + storagePrice_mS + "mS" + (SCP_API_PASSWD==null ? "" : " --apipassword " + SCP_API_PASSWD));
-    	systemExec("./spc host config collateral " + storagePrice_mS + "mS" + (SCP_API_PASSWD==null ? "" : " --apipassword " + SCP_API_PASSWD));
-    	systemExec("./spc host config mincontractprice " + contractPrice_mS + "mS" + (SCP_API_PASSWD==null ? "" : " --apipassword " + SCP_API_PASSWD));
-    	systemExec("./spc host config mindownloadbandwidthprice " + networkPrice_mS + "mS" + (SCP_API_PASSWD==null ? "" : " --apipassword " + SCP_API_PASSWD));
-    	systemExec("./spc host config minuploadbandwidthprice " + networkPrice_mS + "mS" + (SCP_API_PASSWD==null ? "" : " --apipassword " + SCP_API_PASSWD));
+    	systemExec("./spc host config minstorageprice " + storagePrice_mS + "mS" 
+    			+ (SCP_API_PASSWD==null ? "" : " --apipassword " + SCP_API_PASSWD)
+    			+ (SCP_ADDR_STRING==null ? "" : " --addr " + SCP_ADDR_STRING)
+    			);
+    	systemExec("./spc host config collateral " + storagePrice_mS + "mS" 
+    			+ (SCP_API_PASSWD==null ? "" : " --apipassword " + SCP_API_PASSWD)
+    			+ (SCP_ADDR_STRING==null ? "" : " --addr " + SCP_ADDR_STRING)
+    			);
+    	systemExec("./spc host config mincontractprice " + contractPrice_mS + "mS" 
+    			+ (SCP_API_PASSWD==null ? "" : " --apipassword " + SCP_API_PASSWD)
+    			+ (SCP_ADDR_STRING==null ? "" : " --addr " + SCP_ADDR_STRING)
+    			);
+    	systemExec("./spc host config mindownloadbandwidthprice " + networkPrice_mS + "mS" 
+    			+ (SCP_API_PASSWD==null ? "" : " --apipassword " + SCP_API_PASSWD)
+    			+ (SCP_ADDR_STRING==null ? "" : " --addr " + SCP_ADDR_STRING)
+    			);
+    	systemExec("./spc host config minuploadbandwidthprice " + networkPrice_mS + "mS" 
+    			+ (SCP_API_PASSWD==null ? "" : " --apipassword " + SCP_API_PASSWD)
+    			+ (SCP_ADDR_STRING==null ? "" : " --addr " + SCP_ADDR_STRING)
+    			);
     }
     
     public void systemExec(String commandLine) throws Exception
@@ -185,6 +201,11 @@ public class App
     	val = props.getProperty("scp.apipassword");
     	if(val!=null)
     		App.SCP_API_PASSWD = val;
+    	
+/////////
+    	val = props.getProperty("scp.host.address");
+    	if(val!=null)
+    		App.SCP_ADDR_STRING = val;
     	
 /////////
     	val = props.getProperty("app.storagePrice");
