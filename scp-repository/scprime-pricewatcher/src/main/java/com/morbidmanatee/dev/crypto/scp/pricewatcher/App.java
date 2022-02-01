@@ -108,8 +108,8 @@ public class App
 
 //    	System.out.println("SCP Price: " + rate);
     	int storagePrice_mS = Math.max(1000, Math.min(5000, (int)(1000.0 * STORAGE_PRICE / rate)));
-    	int contractPrice_mS =  Math.max(50, Math.min(500, (int)(1000.0 * CONTRACT_PRICE / rate)));
-    	int networkPrice_mS = Math.max(1000, Math.min(2000, (int)(1000.0 * NETWORK_PRICE / rate)));
+    	int contractPrice_mS =  Math.max(1, Math.min(1000, (int)(1000.0 * CONTRACT_PRICE / rate)));
+    	int networkPrice_mS = Math.max(1000, Math.min(5000, (int)(1000.0 * NETWORK_PRICE / rate)));
     	
 //    	System.out.println("storagePrice_mS: " + storagePrice_mS);
 //    	System.out.println("contractPrice_mS: " + contractPrice_mS);
