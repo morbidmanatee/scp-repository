@@ -92,15 +92,7 @@ public class App
     	
 //    	System.out.println("storagePrice_mS: " + storagePrice_mS);
 //    	System.out.println("contractPrice_mS: " + contractPrice_mS);
-//    	System.out.println("networkPrice_mS: " + networkPrice_mS);
-/*    	
-./spc host config minstorageprice 3521mS --apipassword 0c14c5b2cac5f21791613c953392489b
-./spc host config collateral 3521mS --apipassword 0c14c5b2cac5f21791613c953392489b
-./spc host config mincontractprice 352mS  --apipassword 0c14c5b2cac5f21791613c953392489b
-./spc host config mindownloadbandwidthprice 1408mS --apipassword 0c14c5b2cac5f21791613c953392489b
-./spc host config minuploadbandwidthprice 1408mS --apipassword 0c14c5b2cac5f21791613c953392489b	
-*/	
-    	
+//    	System.out.println("networkPrice_mS: " + networkPrice_mS);  	
     	
     	systemExec("./spc host config minstorageprice " + storagePrice_mS + "mS" + (SCP_API_PASSWD==null ? "" : " --apipassword " + SCP_API_PASSWD));
     	systemExec("./spc host config collateral " + storagePrice_mS + "mS" + (SCP_API_PASSWD==null ? "" : " --apipassword " + SCP_API_PASSWD));
