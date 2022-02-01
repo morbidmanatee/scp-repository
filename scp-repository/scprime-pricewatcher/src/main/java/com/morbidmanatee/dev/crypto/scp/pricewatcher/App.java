@@ -103,7 +103,17 @@ public class App
     		// see https://stackoverflow.com/questions/2591098/how-to-parse-json-in-java
 			JsonObject jsonObject = JsonParser.parseString(response.getBody().toString()).getAsJsonObject();
 
-        	rate = jsonObject.get("rate").getAsDouble();
+			try
+			{
+	        	rate = jsonObject.get("rate").getAsDouble();				
+			}
+			catch(Exception e)
+			{
+				System.out.println("Please check that the litecoinwatch.apikey property is set to your api-key!");
+				System.out.println("The configured value is [" + LCW_API_KEY + "]");
+				System.out.println("Exiting");
+				return;
+			}
     	}
 
 //    	System.out.println("SCP Price: " + rate);
