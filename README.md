@@ -18,7 +18,7 @@ The distrib directory contains all you need to run the application.
               could not get host score estimate: [failed to get reader response; GET request error; cannot call /host/estimatescore without the renter module]
               Host settings updated.
               could not get host score estimate: [failed to get reader response; GET request error; cannot call /host/estimatescore without the renter module]
-              morbidmanatee@@pisces:/SCPrimeCurrentVersion$
+              morbidmanatee@pisces:/SCPrimeCurrentVersion$
 
 4) Read crontab-examples.txt to see how to configure a crontab. Here is an example:
 
