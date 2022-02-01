@@ -69,6 +69,8 @@ public class App
 		System.out.println("# Using " + PROPS_FILE_PATH);
 		System.out.println("# Properties loaded: " + props.toString());
 		setSystemParameters(props);
+    	System.out.println("#");
+		
 
     	double rate =  1.0;
     	{
@@ -215,7 +217,7 @@ public class App
     		App.SCP_ADDR_STRING = val;
     	
 /////////
-    	val = props.getProperty("app.storagePrice");
+    	val = props.getProperty("app.target.storagePrice");
     	if(val!=null)
     		App.CURRENT_STORAGE_PRICE_$ = Double.valueOf(val);
     	
