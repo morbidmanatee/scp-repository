@@ -28,4 +28,4 @@
 # update-rates.sh (with execute, the pricewatcher jar and the pricewatcher.properties should be placed in the
 # same directory as the scp application, /SCPrimeCurrentVersion in my case
 # this will produce a new rates.sh everytime it is run
-0 23 * * * cd /SCPrimeCurrentVersion && sh ./update-rates.sh >/dev/null 2>&1
+*/5 * * * * cd /SCPrimeCurrentVersion && sh ./update-rates.sh >/dev/null 2>&1
