@@ -66,7 +66,11 @@ public class App
     	}
     	
 		Properties props = loadProperties(PROPS_FILE_PATH);
-		System.out.println("# Using " + PROPS_FILE_PATH);
+		if(!PROPS_FILE_PATH.startsWith("/") && !PROPS_FILE_PATH.contains(":\\"))
+			System.out.println("# Using " + System.getProperty("user.dir") + "/" + PROPS_FILE_PATH);
+		else
+			System.out.println("# Using " + PROPS_FILE_PATH);
+			
 		System.out.println("# Properties loaded: " + props.toString());
 		setSystemParameters(props);
     	System.out.println("#");
