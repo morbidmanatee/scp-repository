@@ -1,6 +1,6 @@
 Donations are appreciated and will be spent mostly on beer!
 
 SCP:	d37fe9b07b60663d93ec43981fbe0d9b73b7e4de0f3791057e26f7d1fa9a8a79993f5e4e45a2
-XLM:	GBZSL5KBZ4GOQE4TBNMVVVO2XXQ5O6MZHYPD47LON2NIRHLNO2JYLYE7	(no memo)
-XRP:	rsrssuKY11DD1Lx6fq8EcFw51cBjkxiBW3		(no transaction code)
+XLM:	GB5SINXJLDEX7D5T5YD2SKHYVYTVCYVBDREFILUWW7S73FDZC25MCXUF	(no memo)
+XRP:	rDidfgRATsUhnf8nmjKVKcJ15mkkDFpeBx		(no transaction code)
 
