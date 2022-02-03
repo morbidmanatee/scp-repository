@@ -24,7 +24,7 @@
 
 # see https://www.codementor.io/@akul08/the-ultimate-crontab-cheatsheet-5op0f7o4r
 
-# update scp price targets. This is set to launch daily at 11pm.
+# update scp price targets. This is set to launch every five minutes.
 # update-rates.sh (with execute, the pricewatcher jar and the pricewatcher.properties should be placed in the
 # same directory as the scp application, /SCPrimeCurrentVersion in my case
 # this will produce a new rates.sh everytime it is run
