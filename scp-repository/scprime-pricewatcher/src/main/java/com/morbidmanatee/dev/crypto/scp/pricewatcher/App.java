@@ -56,6 +56,8 @@ public class App
     	{
     		SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
     		Date date = new Date(System.currentTimeMillis());
+    		System.out.println("#");
+    		System.out.println("#################################");
     		System.out.println("# Generated " + formatter.format(date));   		
     	}
     	System.out.println("#");
