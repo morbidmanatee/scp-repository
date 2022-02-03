@@ -3,7 +3,7 @@
 The distrib directory contains all you need to run the application. 
 
 
-1) Move the files in distrib to your scp directory (so that the ./scp ... command will execute)
+1) Move the files in scp-repository/scp-repository/scprime-pricewatcher/distrib/ to your scp directory (so that the ./scp ... command will execute)
 2) Edit the pricewatch.properties file with your api key on livecoinwatch.com (you must create a login). Go to https://www.livecoinwatch.com/tools/api
 3) Test execute the app by running '$ sh ./update-rates.sh' manually. If it works you should see something like this as output:
 
